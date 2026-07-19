@@ -14,12 +14,51 @@ const SLIDES = [
     glow: 'rgba(0, 216, 255, 0.18)',
     accent: '#00D8FF',
     svg: (
-      <svg className="w-40 h-40 text-[#00D8FF] opacity-80" viewBox="0 0 200 200" fill="none">
-        <circle cx="100" cy="100" r="70" stroke="currentColor" strokeWidth="1" />
-        <circle cx="100" cy="100" r="45" stroke="currentColor" strokeWidth="0.75" strokeDasharray="6 6" />
-        <path d="M30 100 H170 M100 30 V170" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
-        <polygon points="100,20 180,100 100,180 20,100" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
+      <div className="w-full h-full flex flex-col items-center justify-center p-4 relative select-none">
+        {/* Mini Browser Window */}
+        <div className="w-[200px] h-[120px] rounded-xl border border-white/10 bg-black/60 shadow-2xl flex flex-col overflow-hidden">
+          {/* Browser Bar */}
+          <div className="h-4.5 bg-white/5 border-b border-white/5 px-2 flex items-center gap-1 shrink-0">
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            <div className="w-24 h-2 rounded bg-white/5 mx-auto" />
+          </div>
+          {/* Browser Content */}
+          <div className="flex-grow p-2.5 flex flex-col gap-2 text-left justify-center">
+            {/* Tiny Navbar */}
+            <div className="flex justify-between items-center opacity-60">
+              <div className="w-5 h-1.5 rounded bg-white/40" />
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-1 rounded bg-white/20" />
+                <div className="w-2.5 h-1 rounded bg-white/20" />
+              </div>
+              <div className="w-5 h-1.5 rounded bg-[#00D8FF]/60" />
+            </div>
+            {/* Tiny Hero */}
+            <div className="space-y-1.5 mt-1">
+              <div className="w-24 h-2.5 rounded bg-white" />
+              <div className="w-16 h-2 rounded bg-white/60" />
+            </div>
+            {/* Tiny Button */}
+            <div className="w-10 h-2.5 rounded bg-[#00D8FF] shrink-0" />
+          </div>
+        </div>
+
+        {/* Floating Swatches Badge (Overlayed bottom left) */}
+        <div className="absolute bottom-2 left-2 p-2 rounded-xl border border-white/10 bg-[#0E0E0E]/90 backdrop-blur-md flex gap-1.5 shadow-xl">
+          <div className="w-3.5 h-3.5 rounded bg-[#050505] border border-white/10" />
+          <div className="w-3.5 h-3.5 rounded bg-[#00D8FF]" />
+          <div className="w-3.5 h-3.5 rounded bg-[#5D7CFF]" />
+          <div className="w-3.5 h-3.5 rounded bg-white" />
+        </div>
+
+        {/* Floating Typography Badge (Overlayed bottom right) */}
+        <div className="absolute top-2 right-2 p-2 rounded-xl border border-white/10 bg-[#0E0E0E]/90 backdrop-blur-md flex items-center gap-2 shadow-xl">
+          <span className="font-display font-black text-xs text-white">Aa</span>
+          <span className="font-mono text-[6px] text-gray-500 tracking-wider">INTER / 900</span>
+        </div>
+      </div>
     ),
   },
   {
@@ -31,13 +70,42 @@ const SLIDES = [
     glow: 'rgba(93, 124, 255, 0.18)',
     accent: '#5D7CFF',
     svg: (
-      <svg className="w-40 h-40 text-[#5D7CFF] opacity-80" viewBox="0 0 200 200" fill="none">
-        <rect x="35" y="35" width="130" height="130" rx="10" stroke="currentColor" strokeWidth="1.5" />
-        <rect x="55" y="55" width="90" height="90" rx="6" stroke="currentColor" strokeWidth="0.75" strokeDasharray="4 4" />
-        <line x1="100" y1="35" x2="100" y2="165" stroke="currentColor" strokeWidth="0.5" opacity="0.4" />
-        <line x1="35" y1="100" x2="165" y2="100" stroke="currentColor" strokeWidth="0.5" opacity="0.4" />
-        <path d="M100 65 L135 100 L100 135 L65 100 Z" stroke="currentColor" strokeWidth="1" />
-      </svg>
+      <div className="w-full h-full flex flex-col items-center justify-center p-4 relative select-none">
+        {/* UI Elements Stack */}
+        <div className="w-[180px] flex flex-col gap-2 p-3 rounded-2xl border border-white/10 bg-black/60 shadow-2xl">
+          {/* Input Field Mock */}
+          <div className="h-6 rounded-lg border border-white/5 bg-white/2 px-2 flex items-center justify-between">
+            <span className="font-mono text-[7px] text-gray-500">enter email...</span>
+            <div className="w-2.5 h-2.5 rounded bg-[#5D7CFF]/80" />
+          </div>
+          {/* Buttons row */}
+          <div className="flex gap-2">
+            <div className="flex-grow h-6 rounded-lg bg-[#5D7CFF] flex items-center justify-center">
+              <span className="font-display font-black text-[7px] text-white tracking-wider">PRIMARY</span>
+            </div>
+            <div className="flex-grow h-6 rounded-lg border border-white/10 bg-transparent flex items-center justify-center">
+              <span className="font-display font-black text-[7px] text-gray-400 tracking-wider">SECONDARY</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Layout Grid Wireframe (Floating top right) */}
+        <div className="absolute top-0 right-2 w-[85px] p-2 rounded-xl border border-white/10 bg-[#0E0E0E]/90 backdrop-blur-md flex flex-col gap-1 shadow-xl">
+          <span className="font-mono text-[5px] text-gray-500 tracking-wider">LAYOUT_GRID</span>
+          <div className="h-2 rounded bg-white/5 border border-dashed border-white/10 text-[5px] font-mono text-center text-gray-600">HEADER</div>
+          <div className="h-4 rounded bg-[#5D7CFF]/5 border border-dashed border-[#5D7CFF]/20 text-[5px] font-mono text-center text-gray-400">HERO</div>
+          <div className="h-3 rounded bg-white/5 border border-dashed border-white/10 text-[5px] font-mono text-center text-gray-600">SERVICES</div>
+        </div>
+
+        {/* Component Status Badge (Floating bottom left) */}
+        <div className="absolute bottom-2 left-2 p-2 rounded-xl border border-white/10 bg-[#0E0E0E]/90 backdrop-blur-md flex flex-col gap-1 shadow-xl text-left">
+          <div className="flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-[#00E5A3] animate-pulse" />
+            <span className="font-mono text-[6px] text-gray-300">COMPONENT_BUILD</span>
+          </div>
+          <span className="font-mono text-[5px] text-gray-500">OPTIMIZED // 100%</span>
+        </div>
+      </div>
     ),
   },
   {
@@ -49,23 +117,66 @@ const SLIDES = [
     glow: 'rgba(0, 233, 160, 0.15)',
     accent: '#00E5A3',
     svg: (
-      <svg className="w-40 h-40 text-[#00E5A3] opacity-80" viewBox="0 0 200 200" fill="none">
-        <circle cx="100" cy="100" r="30" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="50" cy="50" r="12" stroke="currentColor" strokeWidth="1" />
-        <circle cx="150" cy="50" r="12" stroke="currentColor" strokeWidth="1" />
-        <circle cx="50" cy="150" r="12" stroke="currentColor" strokeWidth="1" />
-        <circle cx="150" cy="150" r="12" stroke="currentColor" strokeWidth="1" />
-        {/* Connecting network lines */}
-        <line x1="62" y1="62" x2="78" y2="78" stroke="currentColor" strokeWidth="1" />
-        <line x1="138" y1="62" x2="122" y2="78" stroke="currentColor" strokeWidth="1" />
-        <line x1="62" y1="138" x2="78" y2="122" stroke="currentColor" strokeWidth="1" />
-        <line x1="138" y1="138" x2="122" y2="122" stroke="currentColor" strokeWidth="1" />
-        <line x1="50" y1="62" x2="50" y2="138" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" />
-        <line x1="150" y1="62" x2="150" y2="138" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" />
-      </svg>
+      <div className="w-full h-full flex flex-col items-center justify-center p-4 relative select-none">
+        {/* Device stack */}
+        <div className="relative w-[190px] h-[105px] flex items-end justify-center gap-2">
+          {/* Tablet Frame */}
+          <div className="w-[45px] h-[65px] rounded-lg border border-white/10 bg-black/60 shadow-xl p-1 flex flex-col justify-between shrink-0">
+            <div className="h-1 bg-white/5 rounded-full" />
+            <div className="h-8 bg-white/2 rounded" />
+            <div className="h-1 bg-white/5 rounded-full w-2 mx-auto" />
+          </div>
+          {/* Desktop Frame */}
+          <div className="w-[110px] h-[80px] rounded-xl border border-white/10 bg-black/60 shadow-2xl p-1.5 flex flex-col justify-between">
+            <div className="h-2 bg-white/5 rounded-md flex justify-between px-1">
+              <div className="w-1.5 h-0.8 bg-white/20 rounded-full" />
+              <div className="w-2.5 h-0.8 bg-white/20 rounded-full" />
+            </div>
+            <div className="h-10 bg-white/2 rounded-md" />
+            <div className="h-1 bg-white/10 rounded w-8 mx-auto" />
+          </div>
+          {/* Mobile Frame */}
+          <div className="absolute right-0 bottom-0 w-[25px] h-[45px] rounded border border-white/20 bg-black/90 shadow-2xl p-0.5 flex flex-col justify-between">
+            <div className="h-0.5 bg-white/20 rounded-full w-2 mx-auto" />
+            <div className="h-6 bg-white/5 rounded" />
+            <div className="w-1 h-1 rounded-full bg-white/30 mx-auto" />
+          </div>
+        </div>
+
+        {/* Workflow Flow (Floating top left) */}
+        <div className="absolute top-2 left-2 p-2 rounded-xl border border-white/10 bg-[#0E0E0E]/95 backdrop-blur-md flex items-center gap-1.5 shadow-xl">
+          <div className="px-1.5 py-0.5 rounded border border-white/10 text-[5px] font-mono text-gray-400">DESIGN</div>
+          <span className="text-gray-500 text-[6px]">&rarr;</span>
+          <div className="px-1.5 py-0.5 rounded border border-primary/20 text-[5px] font-mono text-primary">DEV</div>
+          <span className="text-gray-500 text-[6px]">&rarr;</span>
+          <div className="px-1.5 py-0.5 rounded border border-white/10 text-[5px] font-mono text-gray-400">LAUNCH</div>
+        </div>
+      </div>
     ),
   },
 ];
+
+function Counter({ value }: { value: number }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 1800; // 1.8s
+    const incrementTime = Math.max(Math.floor(duration / value), 16);
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= value) {
+        clearInterval(timer);
+      }
+    }, incrementTime);
+
+    return () => clearInterval(timer);
+  }, [value]);
+
+  return <span>{count}</span>;
+}
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -110,57 +221,42 @@ export default function Hero() {
     return 'back';
   };
 
-  const getStyleForRole = (role: string) => {
-    const baseStyle = {
-      transition: 'transform 650ms cubic-bezier(0.16, 1, 0.3, 1), filter 650ms cubic-bezier(0.16, 1, 0.3, 1), opacity 650ms cubic-bezier(0.16, 1, 0.3, 1), left 650ms cubic-bezier(0.16, 1, 0.3, 1), bottom 650ms cubic-bezier(0.16, 1, 0.3, 1), height 650ms cubic-bezier(0.16, 1, 0.3, 1)',
-      willChange: 'transform, filter, opacity',
-    };
-
-    switch (role) {
-      case 'center':
-        return {
-          ...baseStyle,
-          transform: `translateX(-50%) scale(${isMobile ? 1.05 : 1.22})`,
-          filter: 'blur(0px)',
-          opacity: 1,
-          zIndex: 20,
-          left: '50%',
-          height: '100%',
-          bottom: '0%',
-        };
-      case 'left':
-        return {
-          ...baseStyle,
-          transform: 'translateX(-50%) scale(0.85) rotate(-6deg)',
-          filter: 'blur(3px)',
-          opacity: 0.4,
-          zIndex: 10,
-          left: isMobile ? '15%' : '20%',
-          height: '80%',
-          bottom: '5%',
-        };
-      case 'right':
-        return {
-          ...baseStyle,
-          transform: 'translateX(-50%) scale(0.85) rotate(6deg)',
-          filter: 'blur(3px)',
-          opacity: 0.4,
-          zIndex: 10,
-          left: isMobile ? '85%' : '80%',
-          height: '80%',
-          bottom: '5%',
-        };
-      default:
-        return {
-          ...baseStyle,
-          transform: 'translateX(-50%) scale(0.7)',
-          filter: 'blur(6px)',
-          opacity: 0,
-          zIndex: 5,
-          left: '50%',
-          height: '70%',
-          bottom: '10%',
-        };
+  const cardVariants = {
+    center: {
+      x: '-50%',
+      y: '0%',
+      scale: isMobile ? 1.05 : 1.22,
+      rotate: 0,
+      filter: 'blur(0px)',
+      opacity: 1,
+      zIndex: 20,
+    },
+    left: {
+      x: isMobile ? '-140%' : '-150%',
+      y: '10%',
+      scale: 0.85,
+      rotate: -6,
+      filter: 'blur(3px)',
+      opacity: 0.45,
+      zIndex: 10,
+    },
+    right: {
+      x: isMobile ? '40%' : '50%',
+      y: '10%',
+      scale: 0.85,
+      rotate: 6,
+      filter: 'blur(3px)',
+      opacity: 0.45,
+      zIndex: 10,
+    },
+    back: {
+      x: '-50%',
+      y: '15%',
+      scale: 0.7,
+      rotate: 0,
+      filter: 'blur(6px)',
+      opacity: 0,
+      zIndex: 5,
     }
   };
 
@@ -199,7 +295,7 @@ export default function Hero() {
           </div>
 
           {/* Giant overlapping Awwwards-style typography */}
-          <h1 className="font-display font-black text-[55px] sm:text-[85px] lg:text-[104px] leading-[0.88] tracking-tighter mb-10 text-left">
+          <h1 className="font-display font-black text-[clamp(42px,11vw,104px)] leading-[0.88] tracking-tighter mb-10 text-left">
             <div className="reveal-wrapper">
               <motion.span 
                 variants={textVariants} 
@@ -294,11 +390,28 @@ export default function Hero() {
             {SLIDES.map((slide, index) => {
               const role = getRole(index);
               return (
-                <div 
+                <motion.div 
                   key={slide.id}
-                  className="absolute w-full h-[90%] rounded-3xl p-8 glass-panel border border-white/5 flex flex-col justify-between"
+                  variants={cardVariants}
+                  animate={role}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.4}
+                  onDragEnd={(e, info) => {
+                    if (info.offset.x < -60) {
+                      navigate('next');
+                    } else if (info.offset.x > 60) {
+                      navigate('prev');
+                    }
+                  }}
+                  className="absolute w-full h-[90%] rounded-3xl p-8 border flex flex-col justify-between cursor-grab active:cursor-grabbing bg-black/10 backdrop-blur-md"
                   style={{ 
-                    ...getStyleForRole(role),
+                    left: '50%',
+                    bottom: '5%',
+                    transformOrigin: 'bottom center',
+                    borderColor: role === 'center' ? `${slide.accent}40` : 'rgba(255, 255, 255, 0.05)',
+                    boxShadow: role === 'center' ? `0 20px 40px -10px ${slide.accent}0a` : 'none'
                   }}
                 >
                   {/* Grid details indicator inside the glass card */}
@@ -340,18 +453,41 @@ export default function Hero() {
                   </div>
 
                   {/* Bottom details label */}
-                  <div className="flex justify-between items-center bg-white/2 border border-white/5 rounded-xl p-3.5 backdrop-blur-md">
+                  <div 
+                    className="flex justify-between items-center border rounded-xl p-3.5 bg-black/20 backdrop-blur-sm"
+                    style={{ borderColor: 'rgba(255, 255, 255, 0.05)' }}
+                  >
                     <div>
                       <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest leading-none">MODULE</p>
                       <h4 className="text-white font-display font-black text-sm tracking-tight mt-1">{slide.title}</h4>
                     </div>
                     <span className="font-mono text-[10px] font-bold text-gray-400">{slide.id}</span>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
+      </div>
+
+      {/* Premium Statistics Block */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 my-8 border-y border-white/5 w-full">
+        {[
+          { value: 150, suffix: '+', label: 'PROJECTS DELIVERED' },
+          { value: 98, suffix: '%', label: 'CLIENT SATISFACTION' },
+          { value: 12, suffix: '+', label: 'COUNTRIES IN NETWORK' },
+          { value: 5, suffix: '+', label: 'YEARS OF CRAFTSMANSHIP' }
+        ].map((stat, i) => (
+          <div key={i} className="flex flex-col items-start text-left">
+            <span className="font-display font-black text-3xl md:text-4xl text-white flex items-baseline">
+              <Counter value={stat.value} />
+              <span className="text-primary ml-0.5">{stat.suffix}</span>
+            </span>
+            <span className="font-mono text-[8px] md:text-[9px] text-gray-500 uppercase tracking-widest mt-2">
+              {stat.label}
+            </span>
+          </div>
+        ))}
       </div>
 
       {/* Bottom status display */}

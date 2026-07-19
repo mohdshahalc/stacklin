@@ -30,12 +30,14 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
     }
     requestAnimationFrame(raf);
 
+    // Auto-resize Lenis when DOM height updates
+    const resizeObserver = new ResizeObserver(() => {
+      lenis.resize();
+    });
+    resizeObserver.observe(document.body);
+
     // Connect Lenis to ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
 
     // 2. Custom Cursor & Magnetic Target Movement
     const cursorDot = cursorDotRef.current;
@@ -156,6 +158,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseout', handleMouseOut);
+      resizeObserver.disconnect();
       lenis.destroy();
       isMoving = false;
     };
