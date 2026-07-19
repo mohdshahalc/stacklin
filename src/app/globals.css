@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050505;
+  --color-card: #101010;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-primary: #00D8FF;
+  --color-secondary: #5D7CFF;
+  --color-text: #FFFFFF;
+}
+
+:root {
+  --cyan-glow: rgba(0, 216, 255, 0.15);
+  --blue-glow: rgba(93, 124, 255, 0.15);
+}
+
+body {
+  background-color: #050505;
+  color: #FFFFFF;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  cursor: none;
+}
+
+/* Lenis Smooth Scroll Base Styles */
+html.lenis {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: rgba(16, 16, 16, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C1C1C;
+  border-radius: 4px;
+  border: 2px solid #050505;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2C2C2C;
+}
+
+/* Custom Cursor styling */
+#cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #00D8FF;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+#cursor-follower {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(0, 216, 255, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #050505;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Stretched gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #00D8FF 0%, #5D7CFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Text reveal utility */
+.reveal-wrapper {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
+  display: inline-block;
+}
+
+.reveal-element {
+  display: block;
+}
+
+/* Bento mouse tracking glow card */
+.bento-card {
+  position: relative;
+  background: #101010;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255,255,255,0.06), transparent 40%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* Perspective tilt contents */
+.tilt-content {
+  transform: translateZ(20px);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Timeline fill path */
+.timeline-progress-line {
+  transform-origin: top;
+  scale-y: 0;
+}
+
+/* Hide elements initially for reveal animation */
+.scroll-trigger-fade {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Grain effect */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Premium navbar link hover transitions */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* 3D Platform Perspective */
+.platform-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Premium WebGL text overlay stroke */
+.stroke-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+  color: transparent;
+  transition: -webkit-text-stroke 0.5s ease;
+}
+
+.stroke-text:hover {
+  -webkit-text-stroke: 1px rgba(0, 216, 255, 0.7);
+}
+
+/* No Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
