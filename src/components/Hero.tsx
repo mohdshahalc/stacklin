@@ -79,6 +79,15 @@ export default function Hero() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Autoplay loop that clears and restarts whenever index shifts
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % SLIDES.length);
+    }, 5000); // changes every 5 seconds
+
+    return () => clearInterval(timer);
+  }, [activeIndex]);
+
   const navigate = useCallback((direction: 'next' | 'prev') => {
     if (isAnimating) return;
     setIsAnimating(true);
@@ -193,7 +202,6 @@ export default function Hero() {
           <h1 className="font-display font-black text-[55px] sm:text-[85px] lg:text-[104px] leading-[0.88] tracking-tighter mb-10 text-left">
             <div className="reveal-wrapper">
               <motion.span 
-                key={`title-1-${activeIndex}`}
                 variants={textVariants} 
                 initial="hidden"
                 animate="visible"
