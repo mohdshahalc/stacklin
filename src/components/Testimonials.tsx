@@ -159,12 +159,14 @@ export default function Testimonials() {
           {/* Navigation Controls */}
           <div className="flex gap-3 mt-6">
             <button 
+              suppressHydrationWarning
               onClick={() => navigate('prev')}
               className="magnetic-target flex items-center justify-center rounded-full w-12 h-12 border border-white/10 bg-transparent hover:bg-white/5 transition-all duration-150 cursor-pointer"
             >
               <ArrowLeft className="text-white" size={18} strokeWidth={1.75} />
             </button>
             <button 
+              suppressHydrationWarning
               onClick={() => navigate('next')}
               className="magnetic-target flex items-center justify-center rounded-full w-12 h-12 border border-white/10 bg-transparent hover:bg-white/5 transition-all duration-150 cursor-pointer"
             >

@@ -156,8 +156,8 @@ export default function TechStack() {
                   {orbit.techs.map((tech, tIdx) => {
                     const totalTechs = orbit.techs.length;
                     const angle = (2 * Math.PI * tIdx) / totalTechs;
-                    const x = orbitRadius * Math.cos(angle);
-                    const y = orbitRadius * Math.sin(angle);
+                    const x = Number((orbitRadius * Math.cos(angle)).toFixed(2));
+                    const y = Number((orbitRadius * Math.sin(angle)).toFixed(2));
                     const isHovered = activeTech === tech.name;
 
                     return (
